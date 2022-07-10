@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c22fccc-ee3e-4b4a-9ccf-899555e60266" name="Changes" comment="ML">
-      <change beforePath="$PROJECT_DIR$/.idea/Final_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Final_Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Predict_API.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Predict_API.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/front/run_front_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/front/run_front_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/run_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run_server.py" afterDir="false" />
-    </list>
+    <list default="true" id="9c22fccc-ee3e-4b4a-9ccf-899555e60266" name="Changes" comment="ML" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +52,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657462335319</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ML">
+      <created>1657465851878</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1657465851878</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
