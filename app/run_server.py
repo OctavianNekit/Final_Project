@@ -24,7 +24,7 @@ def load_model(model_path):
     print(model)
 
 
-modelpath = "app/app/models/GB_pipeline.dill"
+modelpath = "/app/app/models/GB_pipeline.dill"
 load_model(modelpath)
 
 
