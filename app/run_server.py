@@ -24,7 +24,7 @@ def load_model(model_path):
     print(model)
 
 
-modelpath = "/app/app/models/GB_pipeline.dill"
+modelpath = "/app/models/GB_pipeline.dill"
 load_model(modelpath)
 
 
@@ -39,67 +39,79 @@ def predict():
     dt = strftime("[%Y-%b-%d %H:%M:%S]")
     if flask.request.method == "POST":
 
-        Sex, ChestPainType, RestingECG, ExerciseAngina, ST_Slope, Age, RestingBP, Cholesterol, FastingBS, MaxHR, Oldpeak \
-            = '', '', '', '', '', '', '', '', '', '', ''
+        Sex, AnginaPectoris, Vessels, ChestPainType, SugarLevel, Electrocardiographic, Slope, ThalRate,\
+        Age, Pressure, Cholesterol, MaxHeartRate, OldPeak = '', '', '', '', '', '', '', '', '', '', '', '', ''
 
         request_json = flask.request.get_json()
 
         if request_json["Sex"]:
             Sex = request_json['Sex']
 
+        if request_json["AnginaPectoris"]:
+            AnginaPectoris = request_json['AnginaPectoris']
+
+        if request_json["Vessels"]:
+            Vessels = request_json['Vessels']
+
         if request_json["ChestPainType"]:
             ChestPainType = request_json['ChestPainType']
 
-        if request_json["RestingECG"]:
-            RestingECG = request_json['RestingECG']
+        if request_json["SugarLevel"]:
+            SugarLevel = request_json['SugarLevel']
 
-        if request_json["ExerciseAngina"]:
-            ExerciseAngina = request_json['ExerciseAngina']
+        if request_json["Electrocardiographic"]:
+            Electrocardiographic = request_json['Electrocardiographic']
 
-        if request_json["ST_Slope"]:
-            ST_Slope = request_json['ST_Slope']
+        if request_json["Slope"]:
+            Slope = request_json['Slope']
+
+        if request_json["ThalRate"]:
+            ThalRate = request_json['ThalRate']
 
         if request_json["Age"]:
             Age = request_json['Age']
 
-        if request_json["RestingBP"]:
-            RestingBP = request_json['RestingBP']
+        if request_json["Pressure"]:
+            Pressure = request_json['Pressure']
 
         if request_json["Cholesterol"]:
             Cholesterol = request_json['Cholesterol']
 
-        if request_json["FastingBS"]:
-            FastingBS = request_json['FastingBS']
+        if request_json["MaxHeartRate"]:
+            MaxHeartRate = request_json['MaxHeartRate']
 
-        if request_json["MaxHR"]:
-            MaxHR = request_json['MaxHR']
-
-        if request_json["Oldpeak"]:
-            Oldpeak = request_json['Oldpeak']
+        if request_json["OldPeak"]:
+            OldPeak = request_json['OldPeak']
 
         logger.info(f'{dt} Data: Sex={Sex}, '
-                    f'ChestPainType={ChestPainType}, '
-                    f'RestingECG={RestingECG}',
-                    f'ExerciseAngina={ExerciseAngina}',
-                    f'ST_Slope={ST_Slope}',
+                    f'AnginaPectoris={AnginaPectoris}, '
+                    f'Vessels={Vessels}',
+                    f'ChestPainType={ChestPainType}',
+                    f'SugarLevel={SugarLevel}',
+                    f'Electrocardiographic={Electrocardiographic}',
+                    f'Slope={Slope}',
+                    f'ThalRate={ThalRate}',
                     f'Age={Age}',
-                    f'RestingBP={RestingBP}',
+                    f'Pressure={Pressure}',
                     f'Cholesterol={Cholesterol}',
-                    f'FastingBS={FastingBS}',
-                    f'MaxHR={MaxHR}',
-                    f'Oldpeak={Oldpeak}')
+                    f'MaxHeartRate={MaxHeartRate}',
+                    f'OldPeak={OldPeak}')
         try:
+
             preds = model.predict_proba(pd.DataFrame({"Sex": [Sex],
+                                                      "AnginaPectoris": [AnginaPectoris],
+                                                      "Vessels": [Vessels],
                                                       "ChestPainType": [ChestPainType],
-                                                      "RestingECG": [RestingECG],
-                                                      "ExerciseAngina": [ExerciseAngina],
-                                                      "ST_Slope": [ST_Slope],
+                                                      "SugarLevel": [SugarLevel],
+                                                      "Electrocardiographic": [Electrocardiographic],
+                                                      "Slope": [Slope],
+                                                      "ThalRate": [ThalRate],
                                                       "Age": [Age],
-                                                      "RestingBP": [RestingBP],
+                                                      "Pressure": [Pressure],
                                                       "Cholesterol": [Cholesterol],
-                                                      "FastingBS": [FastingBS],
-                                                      "MaxHR": [MaxHR],
-                                                      "Oldpeak": [Oldpeak]}))
+                                                      "MaxHeartRate": [MaxHeartRate],
+                                                      "OldPeak": [OldPeak]}))
+
         except AttributeError as e:
             logger.warning(f'{dt} Exception: {str(e)}')
             data['predictions'] = str(e)
