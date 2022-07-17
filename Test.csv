@@ -1,4 +1,4 @@
-age,sex,cp,trtbps,chol,fbs,restecg,thalachh,exng,oldpeak,slp,caa,thall,output
+Age,Sex,ChestPainType,Pressure,Cholesterol,SugarLevel,Electrocardiographic,MaxHeartRate,AnginaPectoris,OldPeak,Slope,Vessels,ThalRate,output
 57,1,0,150,276,0,0,112,1,0.6,1,1,1,0
 59,1,3,170,288,0,0,159,0,0.2,1,0,3,0
 57,1,2,150,126,1,1,173,0,0.2,2,1,3,1
