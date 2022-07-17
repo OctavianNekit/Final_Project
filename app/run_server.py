@@ -39,7 +39,7 @@ def predict():
     dt = strftime("[%Y-%b-%d %H:%M:%S]")
     if flask.request.method == "POST":
 
-        Sex, AnginaPectoris, Vessels, ChestPainType, SugarLevel, Electrocardiographic, Slope, ThalRate,\
+        Sex, AnginaPectoris, Vessels, ChestPainType, SugarLevel, Electrocardiographic, Slope, ThalRate, \
         Age, Pressure, Cholesterol, MaxHeartRate, OldPeak = '', '', '', '', '', '', '', '', '', '', '', '', ''
 
         request_json = flask.request.get_json()
